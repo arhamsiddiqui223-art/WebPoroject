@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Hospital Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://www.deathreferencedesk.org/wp-content/uploads/2013/08/stock-footage-empty-hospital-room-showing-bed.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 400px;
+      padding: 2rem;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .toggle-link {
+      color: #007bff;
+      cursor: pointer;
+    }
+
+    .toggle-link:hover {
+      text-decoration: underline;
+    }
+
+    .form-label {
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card shadow-sm bg-dark" style="opacity: 0.85;">
+    <h2 class="text-center mb-4 fw-bold text-light" id="form-title">MEDCARE LOGIN</h2>
+
+    <!-- Login Form -->
+    <form id="loginForm" onsubmit="return handleLogin()">
+      <div class="mb-3">
+        <label class="form-label text-light">Username</label>
+        <input type="text" id="username" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label class="form-label text-light">Password</label>
+        <input type="password" id="password" class="form-control" required />
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+
+    <!-- Signup Form -->
+    <form id="signupForm" onsubmit="return handleSignup()" class="text-light" style="display: none;">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" required />
+      </div>
+      <button type="submit" class="btn btn-success w-100">Sign Up</button>
+    </form>
+
+    <div class="text-center mt-3 text-light">
+      <span id="toggleText">Don't have an account?</span>
+      <span class="toggle-link" onclick="toggleForms()">Sign Up</span>
+    </div>
+  </div>
+
+  <script>
+    function handleLogin() {
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+
+      // Admin login
+      if (user === "Admin" && pass === "asdwerxc") {
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("isAdmin", "true");
+        window.location.href = "admin_dashboard.html";
+        return false;
+      }
+
+      // User login using stored credentials
+      const savedUser = localStorage.getItem("user");
+      const savedPass = localStorage.getItem("pass");
+
+      if (user === savedUser && pass === savedPass) {
+        localStorage.setItem("loggedIn", "true");
+        localStorage.removeItem("isAdmin");
+        window.location.href = "home.html";
+      } else {
+        alert("Invalid credentials");
+      }
+
+      return false;
+    }
+
+    function handleSignup() {
+      const username = document.querySelector('#signupForm input[type="text"]').value.trim();
+      const email = document.querySelector('#signupForm input[type="email"]').value.trim();
+      const password = document.querySelector('#signupForm input[type="password"]').value.trim();
+
+      localStorage.setItem("user", username);
+      localStorage.setItem("email", email);
+      localStorage.setItem("pass", password);
+
+      alert("Signup successful! Please login with your new credentials.");
+
+      toggleForms();
+      return false;
+    }
+
+    function toggleForms() {
+      const loginForm = document.getElementById("loginForm");
+      const signupForm = document.getElementById("signupForm");
+      const toggleText = document.getElementById("toggleText");
+      const toggleLink = document.querySelector(".toggle-link");
+      const title = document.getElementById("form-title");
+
+      if (signupForm.style.display === "none") {
+        signupForm.style.display = "block";
+        loginForm.style.display = "none";
+        toggleText.innerText = "Already have an account?";
+        toggleLink.innerText = "Login";
+        title.innerText = "Create Account";
+      } else {
+        signupForm.style.display = "none";
+        loginForm.style.display = "block";
+        toggleText.innerText = "Don't have an account?";
+        toggleLink.innerText = "Sign Up";
+        title.innerText = "User Login";
+      }
+    }
+  </script>
+</body>
+</html>

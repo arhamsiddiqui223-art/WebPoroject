@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | City Care Medical Center</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://www.deathreferencedesk.org/wp-content/uploads/2013/08/stock-footage-empty-hospital-room-showing-bed.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+    }
+
+    .bg-overlay {
+      background-color: rgba(0, 0, 0, 0.65);
+      min-height: 100vh;
+      padding-top: 5rem;
+      padding-bottom: 3rem;
+    }
+
+    .contact-box {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    h2 {
+      color: #ffffff;
+    }
+
+    .list-group-item {
+      background-color: transparent;
+      color: #000;
+      font-weight: 500;
+      border: none;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand text-primary" href="#">MEDCARE</a>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="book.html">Appointment</a></li>
+          <li class="nav-item"><a class="nav-link" href="patients.html">Records</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Contact</a></li>
+          <li class="nav-item"><a class="nav-link text-danger" href="#" onclick="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-overlay" style="opacity: 0.9;">
+    <div class="container py-5">
+      <h2 class="text-center mb-4 fw-bold">Contact Us</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6 contact-box shadow contact-box bg-dark">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item text-light"><strong>Hospital Name:</strong> City Care Medical Center</li>
+            <li class="list-group-item text-light"><strong>Address:</strong> Main Boulevard, DHA Phase 6, Karachi</li>
+            <li class="list-group-item text-light"><strong>Phone:</strong> +92-300-1234567</li>
+            <li class="list-group-item text-light"><strong>Email:</strong> contact@citycare.com</li>
+            <li class="list-group-item text-light"><strong>Working Hours:</strong> Monday - Saturday, 9AM - 9PM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "index.html";
+    }
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

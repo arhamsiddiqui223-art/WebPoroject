@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Hospital Management System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://www.deathreferencedesk.org/wp-content/uploads/2013/08/stock-footage-empty-hospital-room-showing-bed.jpg') no-repeat center center/cover;
+      background-attachment: fixed;
+      color: white;
+    }
+    .bg-overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      padding-top: 5rem;
+      padding-bottom: 3rem;
+    }
+    h2, p, li {
+      color: white;
+    }
+    .section-title {
+      color: #ffffff;
+    }
+    .highlight {
+      color: #ffffff;
+    }
+    .about-image {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+    .team-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #333;
+      transition: transform 0.3s ease;
+    }
+    .team-card:hover {
+      transform: translateY(-5px);
+    }
+    .accordion-button {
+      background-color: #0d6efd;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-overlay">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-info" href="home.html">MEDCARE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="book.html">Appointment</a></li>
+          <li class="nav-item"><a class="nav-link" href="patients.html">Records</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link text-danger" href="#" onclick="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container about-section">
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <img src="https://www.mozocare.com/insights/wp-content/uploads/2020/09/best-hospital.jpg" height="300" alt="Hospital" class="about-image" />
+      </div>
+      <div class="col-md-6">
+        <h2 class="section-title fw-bold"><span class="highlight">About Us</span></h2>
+        <p>At <strong>City Care Medical Center</strong>, our mission is to deliver accessible, high-quality healthcare using modern technology and a compassionate team of professionals.</p>
+        <p>Our system allows easy appointment booking, patient record management, and staff coordination — all in one user-friendly interface.</p>
+        <ul class="mt-3">
+          <li>✔️ 24/7 Appointment Booking</li>
+          <li>✔️ Digital Patient Records</li>
+          <li>✔️ Doctor & Staff Access</li>
+          <li>✔️ Secure and Scalable Platform</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="text-center text-white mb-4 fw-bold">Meet Our Team</h2>
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <div class="card team-card text-center p-5" class="text-dark">
+          <img src="https://www.hdwallpaperspulse.com/wp-content/uploads/2012/10/doctor.jpg" width="220" height="250" class="rounded-circle" alt="Dr. A">
+          <h4 class="mt-3 mb-2">Dr. Ayesha Khan</h4>
+          <h6 class="text-dark">Chief Medical Officer</h6>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card team-card text-center p-5">
+          <img src="https://www.windycityfamilydental.com/wp-content/uploads/2020/01/appointment-docter.png" width="220" height="250" class="rounded-circle" alt="Dr. B">
+          <h4 class="mt-3 mb-2">Dr. Bilal Shah</h4>
+          <h6>Lead Surgeon</h6>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card team-card text-center p-5">
+          <img src="https://leman-clinic.ch/wp-content/uploads/2018/11/02.jpg" width="220" height="250" class="rounded-circle" alt="Dr. C">
+          <h4 class="mt-3 mb-2">Nurse Zara Ali</h4>
+          <h6>Head Nurse</h6>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-center text-white mb-4 fw-bold">FAQs</h2>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+            How do I book an appointment?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-dark">
+            Visit the "Appointment" page, fill out the form, and click submit. You'll receive confirmation shortly.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+            Can I access my past medical records?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body text-dark">
+            Yes, head to the "Records" section after logging in to view your appointment and treatment history.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "index.html";
+  }
+  function logout() {
+    localStorage.removeItem("loggedIn");
+    window.location.href = "index.html";
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
