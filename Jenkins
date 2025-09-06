@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/YOUR-USERNAME/YOUR-REPO.git', credentialsId: 'github-creds'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'cp -r * /var/www/html/'
+            }
+        }
+    }
+}
