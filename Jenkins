@@ -1,14 +1,25 @@
 pipeline {
     agent any
+
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/arhamsiddiqui223-art/webproject.git', credentialsId: 'github-creds'
+                echo 'Cloning repository...'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building project...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
             }
         }
         stage('Deploy') {
             steps {
-                bat 'xcopy * C:\\xampp\\htdocs\\ /E /Y'
+                echo 'Deploying project...'
             }
         }
     }
